@@ -1,0 +1,59 @@
+{% extends "faceapp/base_layout.html" %}
+{% block title %}Khec Attendance | Holiday{% endblock%}
+
+{% block topbarTitle %}<a href="{% url 'home' %}">Dashboard</a> > Holidays{% endblock %}
+
+
+{% block content %}
+{% load static %}
+<!-- Begin page -->
+<div id="wrapper">
+
+    <!-- ============================================================== -->
+    <!-- Start Page Content here  -->
+    <!-- ============================================================== -->
+
+    <div class="content-page">
+        <div class="content">
+            <form class="" method="POST" enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+                            <div class="card-body">
+                                <!-- Upload Picture -->
+                                
+                                <!-- Basic Information -->
+                                <div class="details-tab">
+                                    <h3 class="card-title">Holiday</h3>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-md-3">
+                                            <div class="form-group pmd-textfield pmd-textfield-label">
+                                                <label for="fn" class="col-form-label control-label">Enter Weekend</label>
+                                                {{ form.weekend }}
+                                                <!-- <input type="text" class="form-control" value="" id="fn"> -->
+                                                {% for err in form.weekend.errors %}
+                                                    <small class="text-danger ml-2">{{err}}</small>
+                                                {% endfor%}
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 col-md-3">
+                                            <div class="form-group pmd-textfield pmd-textfield-label">
+                                                <label for="ln" class="col-form-label control-label">Date for holiday</label>
+                                                {{ form.date }}
+                                                {% for err in form.date.errors %}
+                                                    <small class="text-danger ml-2">{{err}}</small>
+                                                {% endfor%}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input  class="btn pmd-ripple-effect btn-primary pmd-btn-raised" type="submit" value="Save">
+                                    <!-- <input type="submit" value="Submit"> -->
+                                </div>
+                            </div>
+                        </form>
+
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "faceapp/base_layout.html" %}
+{% block title %}Khec Attendance | Mail{% endblock%}
+
+{% block topbarTitle %}Dashboard > Send Mail{% endblock %}
+
+
+{% block content %}  
+{% load static %}  
+
+
+
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+                     {% if messages %}
+                        {% for msg in messages%}
+                        <div class="row">
+                            <div class="col-sm-8 offset-2">
+                                <center>
+                                    <p {% if msg.tags %} class="alert alert-{{msg.tags}}" {% endif %}>{{msg}}</p>
+                                </center>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card-box">
+                                    <h4 class="header-title">Message Box</h4>
+                                    <p class="sub-header">
+                                        
+                                    </p>
+                                    
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="p-2">
+                                                    <div class="form-group row">
+                                                        <label class="col-md-2 col-form-label" for="simpleinput">To</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" id="simpleinput" class="form-control" disabled="" value="{{user.profile.email}}">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-md-2 col-form-label">From</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" disabled="" value="comp2073@gmail.com">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label class="col-md-2 col-form-label">Name</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" disabled="" value="{{user.profile.name}}">
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <form method="POST" action="" novalidate>
+                                                         {% csrf_token %}
+                                                        <div class="form-group row">
+                                                            <label class="col-md-2 col-form-label" for="example-placeholder">Subject</label>
+                                                            {{ form.subject }}
+                                                            {% for err in form.image.errors %}
+                                                                <small class="text-danger ml-2">{{err}}</small>
+                                                            {% endfor%}
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label class="col-md-2 col-form-label" for="example-textarea">Message</label>
+                                                            {{ form.message }}
+                                                            {% for err in form.image.errors %}
+                                                                <small class="text-danger ml-2">{{err}}</small>
+                                                            {% endfor%}
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <div class="offset-sm-3 col-sm-9 mt-2">
+                                                                <input type="submit" class="btn btn-primary waves-effect waves-light mr-1" name="" value="send">
+                                                                
+                                                        
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- end row -->
+                                    
+
+                                </div> <!-- end card-box -->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+                     
+
+
+                      
+
+            
+
+                   
+
+                        <!-- Form row -->
+                             
+                        
+                    </div> <!-- container-fluid -->
+
+                </div> <!-- content -->
+
+                
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+
+ {% endblock %}
