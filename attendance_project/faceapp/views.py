@@ -997,7 +997,6 @@ def recognization(request):
 
 
 
-#######
 
 # def home(request):
 # 	return render(request,'faceapp/home.html',{})
