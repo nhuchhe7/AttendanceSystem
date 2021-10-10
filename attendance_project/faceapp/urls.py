@@ -8,7 +8,7 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
 
 # <<<<<<<<<<<<<----admin url--->>>>>>>>>>>>
-    # admin page addition author:Amar Nagaju
+    # admin page addition 
     # path('attendanceMonth/', views.attendanceMonth, name='attendanceMonth'),
     path('timeSetting/', views.timeSetting, name='timeSetting'),
     path('holiday/', views.holiday, name='holiday'),
@@ -50,7 +50,7 @@ urlpatterns = [
     path('contactUs/',views.contactUs,name='contactUs'),
 
 # <<<<<<<<<<<<<----customer url--->>>>>>>>>>>>
-    #user page addition author:Amar Nagaju
+    #user page addition 
     path('userDash/', views.userDash, name='userDash'),
     path('userProfile/', views.userProfile, name='userProfile'),
     path('user_setting/', views.user_setting, name='user_setting'),
